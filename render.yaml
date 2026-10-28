@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: nine-router
+    runtime: image
+    image:
+      url: ghcr.io/SEU_USUARIO/SEU_REPO:latest   # tudo em minúsculas
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: HOSTNAME
+        value: 0.0.0.0
+      - key: NODE_ENV
+        value: production
+      - key: AUTH_COOKIE_SECURE
+        value: "true"
+      - key: REQUIRE_API_KEY          # exige Bearer key em /v1/*
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: API_KEY_SECRET
+        generateValue: true
+      - key: MACHINE_ID_SALT
+        generateValue: true
+      - key: INITIAL_PASSWORD         # senha do dashboard (você digita no Render)
+        sync: false
+      - key: BASE_URL                 # ex.: https://nine-router.onrender.com
+        sync: false
+      - key: GITHUB_TOKEN             # token com acesso ao repo de backup
+        sync: false
+      - key: BACKUP_REPO              # ex.: seuuser/9router-backup (PRIVADO)
+        sync: false
