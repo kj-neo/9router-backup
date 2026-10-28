@@ -3,7 +3,7 @@ services:
     name: nine-router
     runtime: image
     image:
-      url: ghcr.io/SEU_USUARIO/SEU_REPO:latest   # tudo em minúsculas
+      url: ghcr.io/kj-neo/9router-backup:latest   # tudo em minúsculas
     plan: free
     healthCheckPath: /
     envVars:
